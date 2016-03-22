@@ -1,0 +1,68 @@
+<div class='bigContainer'>
+<h1>Reservations</h1>
+    <input name='filter' type="text" class='inputContainer'>
+    <br>
+    <label for="filter">Search for your Reservation with your Name</label>
+    <p>List of Reservations</p>
+    <div class='inputContainer'>
+    <input type="datetime" ng-model='newReservation.when' placeholder="When?">
+    <input type="text" ng-model='newReservation.name' placeholder="Name">
+    <input type="number" ng-model='newReservation.size' placeholder="Party Size">
+    <input type="text" ng-model='newReservation.allergies' placeholder="Allergies">
+    <button class='btn btn-info' ng-click='submit()'>submit</button>
+    </div>
+    <table>
+      <tr>
+        <th>Time</th>
+        <th>Name</th>
+        <th>Group Size</th>
+        <th>Allergies</th>
+        <th>Checked In</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr ng-repeat='reservation in reservations'>
+        <td>{{reservation.when | date : 'medium'}}</td>
+        <td>{{reservation.name}}</td>
+        <td>{{reservation.size}}</td>
+        <td>{{reservation.allergies}}</td>
+        <td><input type="checkbox" ng-change='check(reservation, reservation.checkedIn)' ng-model='reservation.checkedIn'></td>
+        <td><button class='btn btn-success' ng-click='edit(reservation)' data-toggle='modal' data-target='#myModal'>Edit</button></td>
+        <td><button class='btn btn-danger' ng-click='delete(reservation)'>Delete</button></td>
+      </tr>
+    </table>
+    </div>
+
+    <div class="container">
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Information</h4>
+        </div>
+        <div class="modal-body">
+          <label>When?:</label>
+          <input type="datetime" placeholder="When?" ng-model='editReservation.when'>
+          <br>
+          <label>Name:</label>
+          <input type="text" placeholder="Name" ng-model='editReservation.name'>
+          <br>
+          <label>Party Size:</label>
+          <input type="text" placeholder="Party Size" ng-model='editReservation.size'>
+          <br>
+          <label>Allergies:</label>
+          <input type="text" placeholder="Allergies" ng-model='editReservation.allergies'>
+        </div>
+        <div class="modal-footer">
+          <button ng-click='confirm()' class='confirm btn btn-success' data-dismiss="modal">
+            <i class="fa fa-check"></i>
+          </button>
+          <button ng-click='cancelEdit()' class='cancel btn btn-danger' data-dismiss="modal">
+            <i class="fa fa-times fa-fw"></i>
+          </button>
+        </div>
+      </div>
+
+  </div>
+</div>

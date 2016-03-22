@@ -1,0 +1,36 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  background-image: url(http://thumbs.dreamstime.com/x/decorative-light-beige-background-7830294.jpg)
+
+}
+
+a {
+  color: #black;
+}
+
+table {
+  display: inline-table;
+}
+
+th, td {
+text-align: center;
+border: 1px solid black;
+padding: 10px;
+}
+
+.item {
+  width: 100%;
+  height: 50%
+}
+
+.bigContainer {
+  color: white;
+  background-color: black;
+  padding-bottom: 50px
+}
+
+.inputContainer{
+  color: black;
+}
